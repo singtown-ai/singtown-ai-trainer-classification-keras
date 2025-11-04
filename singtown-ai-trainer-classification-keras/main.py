@@ -1,37 +1,20 @@
-from singtown_ai import SingTownAIClient, MOCK_TRAIN_CLASSIFICATION, stdout_watcher, file_watcher
+from singtown_ai import SingTownAIClient
+from singtown_ai import stdout_watcher, file_watcher
+from singtown_ai import export_class_folder
+
 import numpy as np
 import tensorflow as tf
 import keras
 from pathlib import Path
 from zipfile import ZipFile
 
-RUN_PATH = Path("run")
-DATASET_PATH = Path("dataset")
+RUN_PATH = Path("../run")
+DATASET_PATH = Path("../dataset")
 METRICS_PATH = RUN_PATH / "metrics.csv"
 BEST_KERAS_PATH = RUN_PATH / "best.keras"
 RUN_PATH.mkdir(parents=True, exist_ok=True)
 
-# mock_data=MOCK_TRAIN_CLASSIFICATION
-# mock_data['task'] = {
-#     "project": {
-#         "labels": ["cat", "dog"],
-#         "type": "CLASSIFICATION",
-#     },
-#     "device": "openmv-cam-h7-plus",
-#     "model_name": "mobilenet_v2_0.35_128",
-#     "freeze_backbone": True,
-#     "batch_size": 16,
-#     "epochs": 1,
-#     "learning_rate": 0.001,
-#     "early_stopping": 3,
-#     "export_width": 128,
-#     "export_height": 128,
-# }
-
-client = SingTownAIClient(
-    # mock_data=mock_data,
-)
-
+client = SingTownAIClient()
 
 @stdout_watcher(interval=1)
 def on_stdout_write(content: str):
@@ -153,7 +136,7 @@ IMG_SZ = int(IMG_SZ)
 print(f"CUDA available: {tf.test.is_gpu_available(cuda_only=True)}")
 
 print("Download dataset")
-client.export_class_folder(DATASET_PATH)
+export_class_folder(client, DATASET_PATH)
 
 print("Build dataset")
 train_ds, val_ds = build_dataset()
