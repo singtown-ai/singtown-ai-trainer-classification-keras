@@ -45,8 +45,11 @@
 
 ```
 # test
-export SINGTOWN_AI_MOCK_TASK_URL="../mock-task.json"
-export SINGTOWN_AI_MOCK_DATASET_URL="../classification-20.json"
+unset SINGTOWN_AI_HOST
+unset SINGTOWN_AI_TOKEN
+unset SINGTOWN_AI_TASK_ID
+export SINGTOWN_AI_MOCK_TASK_PATH="../mock-task.json"
+export SINGTOWN_AI_MOCK_DATASET_PATH="../classification-20.json"
 uv run main.py
 ```
 
@@ -56,7 +59,7 @@ uv run main.py
 export SINGTOWN_AI_HOST="https://ai.singtown.com"
 export SINGTOWN_AI_TOKEN="your token"
 export SINGTOWN_AI_TASK_ID="your id"
-export SINGTOWN_AI_MOCK_TASK_URL="../classification-20.json"
-export SINGTOWN_AI_MOCK_DATASET_URL="../classification-20.json"
+unset SINGTOWN_AI_MOCK_TASK_PATH
+unset SINGTOWN_AI_MOCK_DATASET_PATH
 uv run main.py
 ```
