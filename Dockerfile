@@ -1,5 +1,7 @@
 FROM ghcr.io/astral-sh/uv:debian
 
+ENV UV_NO_CACHE=true
+
 WORKDIR /app
 COPY . /app
 
