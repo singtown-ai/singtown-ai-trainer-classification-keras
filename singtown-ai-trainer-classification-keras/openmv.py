@@ -11,7 +11,7 @@ sensor.skip_frames(time=2000)  # Let the camera adjust.
 with open('labels.txt', 'r') as file:
     labels = [line.strip() for line in file if line.strip()]
 
-model = ml.Model("trained.tflite", load_to_fb=True)
+model = ml.Model("/rom/trained.tflite", load_to_fb=True)
 norm = ml.Normalization(scale=(-1.0, 1.0))
 
 clock = time.clock()
