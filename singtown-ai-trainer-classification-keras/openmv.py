@@ -8,10 +8,8 @@ sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
 sensor.set_windowing((240, 240))  # Set 240x240 window.
 sensor.skip_frames(time=2000)  # Let the camera adjust.
 
-with open('labels.txt', 'r') as file:
-    labels = [line.strip() for line in file if line.strip()]
-
 model = ml.Model("/rom/trained.tflite", load_to_fb=True)
+labels = model.labels
 norm = ml.Normalization(scale=(-1.0, 1.0))
 
 clock = time.clock()

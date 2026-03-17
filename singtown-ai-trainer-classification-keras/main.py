@@ -178,13 +178,13 @@ tflite_model = converter.convert()
 with open(RUN_PATH/"trained.tflite", "wb") as f:
     f.write(tflite_model)
 
-with open(RUN_PATH/"labels.txt", "wb") as f:
+with open(RUN_PATH/"trained.txt", "wb") as f:
     f.write("\n".join(LABELS).encode("utf-8"))
 
 with ZipFile(RUN_PATH/"result.zip", 'w') as zip:
     zip.write("openmv.py", arcname="main.py")
     zip.write(RUN_PATH/"trained.tflite", arcname="trained.tflite")
-    zip.write(RUN_PATH/"labels.txt", arcname="labels.txt")
+    zip.write(RUN_PATH/"trained.txt", arcname="trained.txt")
 
 client.upload_results_zip(RUN_PATH/"result.zip")
 print("Finished")
