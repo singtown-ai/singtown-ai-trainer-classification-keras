@@ -1201,7 +1201,7 @@ wheels = [
 
 [[package]]
 name = "singtown-ai"
-version = "1.9.2"
+version = "1.10.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -1211,9 +1211,9 @@ dependencies = [
     { name = "requests" },
     { name = "requests-mock" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/69/12/42856a38e2285888f32b6375c010c6580f3a5072823ba3c1844e7fc3ba22/singtown_ai-1.9.2.tar.gz", hash = "sha256:1e51c67e934e301dfd303ba9f94761ab7c6879036a83a2878c3d17ff09dab172", size = 6934, upload-time = "2025-11-05T08:15:48.173Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/38/39/1e8572a416be6617fffabbf10b748871f77e23f7e11f5fb6478372192e53/singtown_ai-1.10.1.tar.gz", hash = "sha256:1c6da3e6f3a14ca9d5c737ed745d0728162b13623fc8b70ffbf643116655b316", size = 7550, upload-time = "2026-03-18T02:23:47.222Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/36/13/c59d9951c398a18e28e0c14651d83e87056d2969cf3d870d04e9bcf89ead/singtown_ai-1.9.2-py3-none-any.whl", hash = "sha256:c8d9aafdc6883cc3908f0e486e27c136fe40b7dcbf7ec6fbd79b5519e7d35a54", size = 6665, upload-time = "2025-11-05T08:15:46.935Z" },
+    { url = "https://files.pythonhosted.org/packages/40/d1/02d076363057e906c8f64f1d2db51d113c1e951e4c320fdb3ca3f80f23ce/singtown_ai-1.10.1-py3-none-any.whl", hash = "sha256:e652bedf720fb86807a72c963ed5746731c184ecce78a3baeb8ab925cf429c9a", size = 7116, upload-time = "2026-03-18T02:23:46.43Z" },
 ]
 
 [[package]]
@@ -1229,7 +1229,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "keras", specifier = ">=3.12.0" },
-    { name = "singtown-ai", specifier = "==1.9.2" },
+    { name = "singtown-ai", specifier = ">=1.10.1" },
     { name = "tensorflow", specifier = "==2.20.0" },
 ]
 

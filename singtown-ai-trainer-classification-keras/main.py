@@ -1,5 +1,5 @@
 from singtown_ai import SingTownAIClient
-from singtown_ai import stdout_watcher, file_watcher
+from singtown_ai import stdout_watcher, file_watcher, error_watcher
 from singtown_ai import export_class_folder
 
 import numpy as np
@@ -19,6 +19,10 @@ client = SingTownAIClient()
 @stdout_watcher(interval=1)
 def on_stdout_write(content: str):
     client.log(content, end="")
+
+@error_watcher()
+def on_error():
+    client.failed()
 
 @file_watcher(METRICS_PATH, interval=3)
 def file_on_change(content: str):
@@ -187,4 +191,5 @@ with ZipFile(RUN_PATH/"result.zip", 'w') as zip:
     zip.write(RUN_PATH/"trained.txt", arcname="trained.txt")
 
 client.upload_results_zip(RUN_PATH/"result.zip")
+client.success()
 print("Finished")
